@@ -15,6 +15,8 @@ var gulp          = require('gulp')
 		imageResize   = require('gulp-image-resize'),
 		del           = require('del');
 
+var deploy      = require('gulp-gh-pages');
+
 // Local Server
 gulp.task('browser-sync', function() {
 	browserSync({
@@ -75,19 +77,9 @@ gulp.task('code', function() {
 });
 
 // Deploy
-gulp.task('rsync', function() {
-	return gulp.src('app/**')
-	.pipe(rsync({
-		root: 'app/',
-		hostname: 'username@yousite.com',
-		destination: 'yousite/public_html/',
-		// include: ['*.htaccess'], // Includes files to deploy
-		exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
-		recursive: true,
-		archive: true,
-		silent: false,
-		compress: true
-	}))
+gulp.task('deploy', function () {
+  return gulp.src("./app/**/*")
+    .pipe(deploy())
 });
 
 // If Gulp Version 3
