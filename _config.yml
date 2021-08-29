@@ -1,6 +1,6 @@
 ---
 title: nftyventures
-timezone: UTC
+timezone: America/Los_Angeles
 collections:
   posts:
     title: Posts
@@ -13,8 +13,8 @@ collections:
     output: true
 email: info@nftyventures.io
 description: homepage of nfty ventures
-baseurl: ''
-url: ''
+baseurl: 
+url: 
 plugins:
 - jekyll-feed
 sass:
