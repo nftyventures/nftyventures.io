@@ -17,6 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: fregante/setup-git-user@v1
+    - run: git config --global user.email "no-reply@nftyventures.io"
+    - run: git config --global user.name "Nfty Bot"
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
